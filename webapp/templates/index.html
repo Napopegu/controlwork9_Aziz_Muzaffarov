@@ -78,9 +78,9 @@
                 options = {method, headers};
             }
             let response = await fetch(url, options);
-            if (response.ok) {  // нормальный ответ
+            if (response.ok) {
                 return await response.json();
-            } else {            // ошибка
+            } else {
                 let error = new Error(response.statusText);
                 error.response = response;
                 throw error;

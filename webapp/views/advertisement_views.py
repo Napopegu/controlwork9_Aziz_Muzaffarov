@@ -1,13 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import  redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
-from django.urls import reverse_lazy
 from webapp.models import Advertisement
 from webapp.forms import AdvertisementForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
-
-
-
 
 
 

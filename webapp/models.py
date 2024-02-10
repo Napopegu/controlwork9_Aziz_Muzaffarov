@@ -22,7 +22,7 @@ class Advertisement(models.Model):
     description = models.TextField(blank=True,  verbose_name='Описание')
     author = models.ForeignKey(get_user_model(), related_name='advertisements', on_delete=models.CASCADE, verbose_name='Автор')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
-    price = models.DecimalField(max_digits=10, decimal_places=2,  verbose_name='Цена')
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
     status_choices = models.CharField(max_length=255, choices = CHOICES, verbose_name='Статус')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     published_at = models.DateTimeField(blank=True, null=True, verbose_name='Дата-время публикации')
