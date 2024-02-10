@@ -7,7 +7,7 @@ from accounts.views import RegisterView, UserChangeView, UserPasswordChangeView,
 app_name = 'accounts'
 
 urlpatterns = [
-path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', RegisterView.as_view(), name='user_create'),
     path('<int:pk>/', UserDetailView.as_view(), name='user_detail'),

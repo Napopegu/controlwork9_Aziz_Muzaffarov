@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Список объявлений</h1>
+    <div class="row">
+        {% for advertisement in object_list %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{{ advertisement.photo.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ advertisement.title }}</h5>
+                        <p class="card-text">{{ advertisement.description }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="{% url 'webapp:advertisement_detail' advertisement.pk %}"
+                                   class="btn btn-sm btn-outline-secondary">Подробнее</a>
+                                {% if advertisement.author == request.user %}
+                                    <a href="{% url 'webapp:advertisement_update' advertisement.pk %}"
+                                       class="btn btn-sm btn-outline-secondary">Редактировать</a>
+                                    <a href="{% url 'webapp:advertisement_delete' advertisement.pk %}"
+                                       class="btn btn-sm btn-outline-secondary">Удалить</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'webapp:advertisement_create' %}" class="btn btn-primary">Создать объявление</a>
+{% endblock %}
